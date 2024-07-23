@@ -23,16 +23,12 @@ jobs:
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: '3.1' # Adjust this to match your Ruby version
+          ruby-version: '2.7' # GitHub Pages currently uses Ruby 2.7.x
           bundler-cache: true
-      - name: Update bundler
-        run: gem install bundler
-      - name: Install dependencies
-        run: |
-          bundle lock --add-platform x86_64-linux
-          bundle install
       - name: Setup Pages
         uses: actions/configure-pages@v5
+      - name: Install dependencies
+        run: bundle install
       - name: Build site
         run: bundle exec jekyll build
         env:
