@@ -16,7 +16,7 @@ jobs:
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: 3.3.4
+          ruby-version: '3.3.4'
 
       - name: Cache Bundler dependencies
         uses: actions/cache@v2
@@ -27,7 +27,9 @@ jobs:
             ${{ runner.os }}-gems-
 
       - name: Install dependencies
-        run: bundle install --jobs 4 --retry 3
+        run: |
+          gem install bundler
+          bundle install --jobs 4 --retry 3
 
       - name: Build Jekyll site
         run: bundle exec jekyll build
