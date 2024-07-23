@@ -18,17 +18,62 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 
-title: WildTech.com
-description: Your gateway to wild technology innovations
-url: "[enter here]" # Note: This won't affect your local development, just for future reference
-email: [enter here]]
-twitter_username: NA
-github_username:  jTMHSDigital
+title: Wild Tech
+email: your-email@example.com
+description: >-
+  Welcome to Wild Tech, your source for technology insights and updates.
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "http://yourdomain.com" # the base hostname & protocol for your site, e.g. http://example.com
+
+theme: minima
 
 # Build settings
-theme: minima
+markdown: kramdown
 plugins:
   - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-seo-tag
+  - jekyll-paginate
+  - jekyll-archives
+  - jekyll-coffeescript
+  - jekyll-gist
+  - jekyll-redirect-from
+  - jekyll-sass-converter
+  - jekyll-assets
+
+# Exclude from processing
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor/bundle
+  - vendor/cache
+  - vendor/gems
+  - vendor/ruby
+
+# Include specific files
+include:
+  - .htaccess
+
+# Other configuration
+collections:
+  my_collection:
+    output: true
+
+defaults:
+  -
+    scope:
+      path: ""
+      type: posts
+    values:
+      layout: "post"
+      author: "Wild Tech Team"
+      
+permalink: /:categories/:year/:month/:day/:title.html
+
+paginate: 5
+paginate_path: "/page:num/"
+
 
 # Exclude from processing.
 # The following items will not be processed, by default.
